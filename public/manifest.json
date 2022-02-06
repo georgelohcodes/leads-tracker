@@ -1,6 +1,12 @@
 {
+  "manifest_version": 3,
+  "author": "George Loh",
+  "version": "1.0",
+  "default_locale": "en",
+  "description": "Simple Leads Tracker built with React",
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Leads Tracker React",
+  "permissions": ["tabs"],
   "icons": [
     {
       "src": "favicon.ico",
