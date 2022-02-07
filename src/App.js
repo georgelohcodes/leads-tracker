@@ -30,27 +30,36 @@ function App() {
     setLeads((prev) => prev.filter((item) => item.id !== id));
   }
 
+  function checkDeleteAll() {
+    const result = window.confirm("Do you want to delete everything?");
+    if (result) {
+      deleteAll();
+    }
+  }
+
   return (
     <div className="App">
+      <h1>Leads Tracker</h1>
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter URL or Input here"
       />
 
-      <div id="buttons">
+      <div id="buttons" className="mb-3">
         <button className="btn btn-primary" onClick={saveInput}>
           Save Input
         </button>
         <button className="btn btn-success" onClick={saveTab}>
           Save Tab
         </button>
-        <button className="btn btn-danger" onDoubleClick={deleteAll}>
+        <button className="btn btn-danger" onClick={checkDeleteAll}>
           Delete All
         </button>
       </div>
 
-      <ol>
+      <div>
         {leads.length > 0 &&
           leads.map((lead) => (
             <ListItem
@@ -59,7 +68,7 @@ function App() {
               deleteListItem={() => deleteListItem(lead.id)}
             />
           ))}
-      </ol>
+      </div>
     </div>
   );
 }

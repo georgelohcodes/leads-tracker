@@ -1,10 +1,15 @@
 import React from "react";
+import "./ListItem.css";
 
 export default function ListItem({ content, deleteListItem }) {
   return (
-    <li>
-      <button onClick={deleteListItem}>Delete</button>
-      {content}
-    </li>
+    <div className="list-item">
+      <a href={content} target="_blank">
+        {content}
+      </a>
+      <button onClick={deleteListItem} className="btn btn-warning">
+        Delete
+      </button>
+    </div>
   );
 }
